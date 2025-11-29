@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Movie Finder — Mini Project</title>
+
+  <!-- jQuery from CDN (course allows jQuery) -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+          integrity="sha256-/xUj+3OJ+Y9g6k6Y3a2f6kVv1K7E2y5YkG1y9q+7q1w="
+          crossorigin="anonymous"></script>
+
+  <!-- link to external CSS (or embed) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="brand">Movie Finder</h1>
+    <nav class="nav">
+      <button class="nav-btn" data-view="home">Home / Search</button>
+      <button class="nav-btn" data-view="watchlist">Watchlist</button>
+      <button class="nav-btn" data-view="readme">Readme</button>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- Home / Search -->
+    <section id="home" class="view active">
+      <div class="search-bar">
+        <input id="search-input" type="search" placeholder="Search movies by title..." autocomplete="off" />
+        <select id="filter-genre">
+          <option value="">All genres</option>
+        </select>
+        <select id="filter-rating">
+          <option value="">Any rating</option>
+          <option value="9">9+</option>
+          <option value="8">8+</option>
+          <option value="7">7+</option>
+          <option value="6">6+</option>
+          <option value="5">5+</option>
+        </select>
+        <button id="clear-filters">Clear</button>
+      </div>
+
+      <div class="results-info">
+        <span id="results-count">No results yet</span>
+      </div>
+
+      <div id="movies-grid" class="grid"></div>
+    </section>
+
+    <!-- Movie details -->
+    <section id="details" class="view">
+      <button class="back-btn">← Back to search</button>
+      <div id="details-card" class="details-card">
+        <!-- Filled dynamically -->
+      </div>
+    </section>
+
+    <!-- Watchlist -->
+    <section id="watchlist" class="view">
+      <h2>Your Watchlist</h2>
+      <div id="watchlist-controls" class="watchlist-controls">
+        <input id="watchlist-search" type="text" placeholder="Filter your watchlist..." />
+        <button id="clear-watchlist">Clear Watchlist</button>
+      </div>
+      <div id="watchlist-grid" class="grid"></div>
+    </section>
+
+    <!-- Readme -->
+    <section id="readme" class="view">
+      <h2>Readme</h2>
+      <div class="readme-content">
+        <h3>Part 1 — Design & Implementation</h3>
+        <p>This is a single-page web app that uses HTML, CSS and JavaScript (with jQuery) and the TMDb API.</p>
+        <ul>
+          <li>Home/Search: live search bar with debounce and filters (genre, rating).</li>
+          <li>Click a movie card to view detailed info (full overview, genres, release date, rating).</li>
+          <li>Watchlist stored in localStorage; you can add/remove and mark watched/unwatched.</li>
+          <li>Smooth animations implemented using jQuery (.fadeIn/.fadeOut/.slideDown)</li>
+        </ul>
+
+        <h3>Part 2 — Key features</h3>
+        <ul>
+          <li>Search by title (live results)</li>
+          <li>Filter results by genre and minimum rating</li>
+          <li>Clickable movie cards show movie details</li>
+          <li>Add/remove movies to watchlist and mark as watched</li>
+        </ul>
+
+        <h3>Part 3 — Reflection</h3>
+        <p></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>TMDb data used under their API terms. Images from TMDb.</small>
+  </footer>
+
+  <!-- App JS -->
+  <script src="app.js"></script>
+</body>
+</html>
